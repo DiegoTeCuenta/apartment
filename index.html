@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inspección de Unidad · Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b0f14;
+    --bg-2:#0f151c;
+    --panel:#141b24;
+    --panel-2:#19222d;
+    --line:#243140;
+    --line-soft:#1b2530;
+    --txt:#e8eef5;
+    --txt-dim:#9fb0c0;
+    --txt-faint:#67788a;
+    --teal:#2fd6c4;
+    --teal-dim:#1c8a80;
+    --amber:#f6b24b;
+    --red:#ff6b6b;
+    --green:#43d782;
+    --radius:16px;
+    --shadow:0 18px 50px -20px rgba(0,0,0,.7);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,sans-serif;
+    background:
+      radial-gradient(1100px 600px at 80% -10%, rgba(47,214,196,.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, rgba(246,178,75,.07), transparent 55%),
+      var(--bg);
+    color:var(--txt);
+    line-height:1.5;
+    padding-bottom:120px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:28px 20px 60px}
+
+  /* ---------- Header ---------- */
+  header.hero{
+    position:relative;
+    border:1px solid var(--line);
+    background:linear-gradient(165deg,var(--panel) 0%,var(--bg-2) 100%);
+    border-radius:var(--radius);
+    padding:30px 28px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  header.hero::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,var(--teal),transparent);
+    height:3px;opacity:.9;
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--teal);font-weight:600;
+    border:1px solid var(--teal-dim);border-radius:999px;
+    padding:5px 12px;margin-bottom:16px;
+  }
+  .badge span.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+  h1{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.7rem,4.5vw,2.5rem);letter-spacing:-.02em;line-height:1.05}
+  h1 .accent{color:var(--teal)}
+  .addr{color:var(--txt-dim);margin-top:8px;font-size:.96rem}
+  .specs{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px}
+  .spec{display:flex;align-items:baseline;gap:6px}
+  .spec b{font-family:'Sora',sans-serif;font-size:1.15rem;color:var(--txt)}
+  .spec small{color:var(--txt-faint);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+
+  .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:24px}
+  .field label{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-faint);margin-bottom:6px;font-weight:600}
+  .field input{
+    width:100%;background:var(--bg-2);border:1px solid var(--line);
+    color:var(--txt);padding:11px 13px;border-radius:10px;font-family:inherit;font-size:.92rem;
+    transition:border-color .15s,box-shadow .15s;
+  }
+  .field input:focus{outline:none;border-color:var(--teal-dim);box-shadow:0 0 0 3px rgba(47,214,196,.12)}
+
+  /* ---------- Progress ---------- */
+  .progress-card{
+    margin-top:18px;border:1px solid var(--line);background:var(--panel);
+    border-radius:var(--radius);padding:18px 22px;
+    display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+    position:sticky;top:14px;z-index:30;backdrop-filter:blur(8px);
+    box-shadow:var(--shadow);
+  }
+  .progress-bar{flex:1;min-width:160px;height:9px;background:var(--bg-2);border-radius:999px;overflow:hidden;border:1px solid var(--line-soft)}
+  .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal-dim),var(--teal));transition:width .35s ease;border-radius:999px}
+  .progress-stats{display:flex;gap:18px;font-size:.85rem}
+  .pstat{display:flex;flex-direction:column;line-height:1.1}
+  .pstat b{font-family:'Sora',sans-serif;font-size:1.25rem}
+  .pstat small{color:var(--txt-faint);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em}
+  .pstat.ok b{color:var(--green)} .pstat.obs b{color:var(--amber)} .pstat.bad b{color:var(--red)}
+
+  /* ---------- Sections ---------- */
+  .section{
+    margin-top:18px;border:1px solid var(--line);background:var(--panel);
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .section-head{
+    display:flex;align-items:center;gap:14px;cursor:pointer;
+    padding:18px 22px;user-select:none;transition:background .15s;
+  }
+  .section-head:hover{background:var(--panel-2)}
+  .section-icon{font-size:1.3rem;width:34px;height:34px;display:grid;place-items:center;
+    background:var(--bg-2);border:1px solid var(--line);border-radius:10px;flex-shrink:0}
+  .section-title{font-family:'Sora',sans-serif;font-weight:600;font-size:1.05rem;flex:1}
+  .section-count{font-size:.78rem;color:var(--txt-faint);background:var(--bg-2);border:1px solid var(--line-soft);
+    padding:3px 10px;border-radius:999px}
+  .section-count.done{color:var(--green);border-color:var(--teal-dim)}
+  .chev{transition:transform .25s;color:var(--txt-dim)}
+  .section.open .chev{transform:rotate(180deg)}
+  .section-body{display:none;padding:4px 16px 14px;border-top:1px solid var(--line-soft)}
+  .section.open .section-body{display:block}
+
+  .item{padding:14px 6px;border-bottom:1px solid var(--line-soft)}
+  .item:last-child{border-bottom:none}
+  .item-top{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .item-label{flex:1;min-width:170px;font-size:.95rem;padding-top:5px}
+  .states{display:flex;gap:7px}
+  .state-btn{
+    border:1px solid var(--line);background:var(--bg-2);color:var(--txt-dim);
+    padding:7px 12px;border-radius:9px;font-family:inherit;font-size:.82rem;font-weight:600;
+    cursor:pointer;transition:all .14s;white-space:nowrap;
+  }
+  .state-btn:hover{border-color:var(--txt-faint);color:var(--txt)}
+  .state-btn.on.bien{background:rgba(67,215,130,.16);border-color:var(--green);color:var(--green)}
+  .state-btn.on.obs{background:rgba(246,178,75,.16);border-color:var(--amber);color:var(--amber)}
+  .state-btn.on.mal{background:rgba(255,107,107,.16);border-color:var(--red);color:var(--red)}
+  .note{
+    margin-top:10px;width:100%;background:var(--bg-2);border:1px solid var(--line-soft);
+    color:var(--txt);padding:9px 12px;border-radius:9px;font-family:inherit;font-size:.88rem;
+    resize:vertical;min-height:0;display:none;
+  }
+  .note.show{display:block}
+  .note:focus{outline:none;border-color:var(--teal-dim);box-shadow:0 0 0 3px rgba(47,214,196,.10)}
+  .note::placeholder{color:var(--txt-faint)}
+
+  .section-tools{display:flex;justify-content:flex-end;padding:6px 4px 2px}
+  .mini-btn{background:none;border:1px solid var(--line);color:var(--txt-dim);font-family:inherit;
+    font-size:.76rem;padding:5px 11px;border-radius:8px;cursor:pointer;transition:all .14s}
+  .mini-btn:hover{border-color:var(--green);color:var(--green)}
+
+  /* ---------- Send ---------- */
+  .send-zone{margin-top:26px;border:1px solid var(--line);background:linear-gradient(165deg,var(--panel),var(--bg-2));
+    border-radius:var(--radius);padding:26px;text-align:center}
+  .send-zone h3{font-family:'Sora',sans-serif;font-weight:700;font-size:1.25rem;margin-bottom:6px}
+  .send-zone p{color:var(--txt-dim);font-size:.9rem;margin-bottom:18px}
+  .recipients{font-size:.8rem;color:var(--txt-faint);margin-top:14px}
+  .recipients code{color:var(--teal);background:var(--bg-2);padding:2px 7px;border-radius:6px;font-size:.78rem}
+
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:10px;justify-content:center;
+    background:linear-gradient(135deg,var(--teal),var(--teal-dim));
+    color:#04221f;font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;
+    border:none;padding:15px 30px;border-radius:12px;cursor:pointer;
+    box-shadow:0 12px 30px -10px rgba(47,214,196,.55);transition:transform .12s,box-shadow .12s;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(47,214,196,.7)}
+  .btn-primary:active{transform:translateY(0)}
+
+  /* ---------- Sticky footer ---------- */
+  .footbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:40;
+    background:rgba(11,15,20,.86);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+    padding:12px 20px;display:flex;align-items:center;gap:16px;justify-content:space-between;
+  }
+  .footbar .fb-stats{display:flex;gap:16px;font-size:.82rem;color:var(--txt-dim)}
+  .footbar .fb-stats b{color:var(--txt);font-family:'Sora',sans-serif}
+  .footbar .fb-send{
+    background:linear-gradient(135deg,var(--teal),var(--teal-dim));color:#04221f;
+    border:none;font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;
+    padding:11px 20px;border-radius:10px;cursor:pointer;white-space:nowrap;
+  }
+  .toast{
+    position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--panel-2);border:1px solid var(--teal-dim);color:var(--txt);
+    padding:13px 20px;border-radius:11px;font-size:.9rem;box-shadow:var(--shadow);
+    opacity:0;pointer-events:none;transition:all .3s;z-index:60;max-width:90%;text-align:center;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  footer.credit{text-align:center;color:var(--txt-faint);font-size:.75rem;margin-top:34px}
+  @media(max-width:560px){
+    .footbar .fb-stats{flex-direction:column;gap:2px}
+    .state-btn{padding:7px 10px;font-size:.78rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="badge"><span class="dot"></span> Inspección de unidad · entrega</div>
+    <h1>Checklist de <span class="accent">Inspección</span></h1>
+    <p class="addr">12501 SW 14th St, APT 315R · Hollywood, FL 33027</p>
+    <div class="specs">
+      <div class="spec"><b>2</b><small>habitaciones</small></div>
+      <div class="spec"><b>2</b><small>baños</small></div>
+      <div class="spec"><b>1,190</b><small>sqft</small></div>
+      <div class="spec"><b>Balcón</b><small>incluido</small></div>
+    </div>
+    <div class="meta">
+      <div class="field"><label>Inspector(es)</label><input id="inspector" type="text" placeholder="Tu nombre" /></div>
+      <div class="field"><label>Fecha</label><input id="fecha" type="date" /></div>
+      <div class="field"><label>Unidad</label><input id="unidad" type="text" value="APT 315R" /></div>
+    </div>
+  </header>
+
+  <div class="progress-card">
+    <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+    <div class="progress-stats">
+      <div class="pstat"><b id="st-rev">0</b><small>revisados</small></div>
+      <div class="pstat ok"><b id="st-ok">0</b><small>bien</small></div>
+      <div class="pstat obs"><b id="st-obs">0</b><small>obs.</small></div>
+      <div class="pstat bad"><b id="st-bad">0</b><small>problemas</small></div>
+    </div>
+  </div>
+
+  <div id="sections"></div>
+
+  <div class="send-zone">
+    <h3>Enviar resultados</h3>
+    <p>Genera el reporte con todos los ítems, observaciones y notas.</p>
+    <button class="btn-primary" id="send-main">📨 Enviar reporte por email</button>
+    <p class="recipients">Para: <code>yoniob@hotmail.com</code> · CC: <code>divegob75@gmail.com</code></p>
+  </div>
+
+  <footer class="credit">Generado para inspección de entrega · marca cada ítem como Bien / Observación / Problema</footer>
+</div>
+
+<div class="footbar">
+  <div class="fb-stats">
+    <span>Revisados: <b id="fb-rev">0</b>/<b id="fb-total">0</b></span>
+    <span>Problemas: <b id="fb-bad">0</b></span>
+  </div>
+  <button class="fb-send" id="send-foot">Enviar reporte →</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN DE ENVÍO
+   ------------------------------------------------------------
+   Por defecto usa "mailto" (abre tu app de correo ya rellenada).
+   Funciona en GitHub Pages sin ninguna configuración.
+
+   OPCIONAL — envío automático real (sin abrir tu correo):
+   pega abajo una Access Key gratuita de https://web3forms.com
+   (créala con el correo yoniob@hotmail.com). Si la dejas vacía,
+   se usa mailto.
+   ============================================================ */
+const WEB3FORMS_ACCESS_KEY = ""; // <-- pega aquí tu key (opcional)
+const TO_EMAIL  = "yoniob@hotmail.com";
+const CC_EMAIL  = "divegob75@gmail.com";
+
+/* ---------- Datos del checklist ---------- */
+const DATA = [
+  { icon:"🚪", title:"Acceso y entrada", items:[
+    "Puerta principal: cierra y abre bien",
+    "Cerradura y pestillo funcionan",
+    "Juego de llaves completo (anotar cantidad en nota)",
+    "Mirilla / visor",
+    "Bisagras sin chirridos ni óxido",
+    "Marco y sellos de la puerta en buen estado",
+    "Timbre / intercomunicador funciona"
+  ]},
+  { icon:"🛋️", title:"Sala y comedor", items:[
+    "Paredes sin manchas, golpes ni grietas",
+    "Techo sin humedad ni manchas",
+    "Piso sin azulejos rotos ni rayones",
+    "Ventanas abren, cierran y sellan",
+    "Vidrios sin roturas",
+    "Persianas / blinds funcionan",
+    "Todos los tomacorrientes dan energía",
+    "Interruptores de luz operan",
+    "Luces de techo encienden",
+    "Ventilador de techo gira en sus velocidades"
+  ]},
+  { icon:"🍳", title:"Cocina", items:[
+    "Gabinetes: puertas, bisagras y manijas",
+    "Encimera (countertop) sin daños ni quemaduras",
+    "Fregadero sin fugas; drena bien",
+    "Grifería / mezclador sin goteo",
+    "Refrigerador enfría y congela",
+    "Sellos de puertas del refrigerador",
+    "Estufa: todos los quemadores encienden",
+    "Horno calienta correctamente",
+    "Campana / extractor funciona",
+    "Lavavajillas (dishwasher) cicla sin fugas",
+    "Triturador de basura (disposal) si aplica",
+    "Tomacorrientes GFCI funcionan",
+    "Limpieza general y sin olores"
+  ]},
+  { icon:"🛏️", title:"Habitación principal", items:[
+    "Paredes, techo y piso en buen estado",
+    "Closet: puertas, barras y estantes",
+    "Ventanas y persianas",
+    "Luces e interruptores",
+    "Tomacorrientes funcionan",
+    "Ventilador de techo (si aplica)"
+  ]},
+  { icon:"🛏️", title:"Habitación 2", items:[
+    "Paredes, techo y piso en buen estado",
+    "Closet: puertas, barras y estantes",
+    "Ventanas y persianas",
+    "Luces e interruptores",
+    "Tomacorrientes funcionan",
+    "Ventilador de techo (si aplica)"
+  ]},
+  { icon:"🚽", title:"Baño principal", items:[
+    "Inodoro descarga bien y no corre agua",
+    "Base del inodoro firme y sellada",
+    "Lavamanos y grifería sin fugas",
+    "Ducha/bañera: presión de agua adecuada",
+    "Drenaje de ducha sin obstrucción",
+    "Azulejos y lechada (grout) en buen estado",
+    "Sellado de silicona sin moho",
+    "Espejo / botiquín",
+    "Extractor / ventilación funciona",
+    "Tomacorriente GFCI"
+  ]},
+  { icon:"🚿", title:"Baño 2", items:[
+    "Inodoro descarga bien y no corre agua",
+    "Base del inodoro firme y sellada",
+    "Lavamanos y grifería sin fugas",
+    "Ducha/bañera: presión de agua adecuada",
+    "Drenaje de ducha sin obstrucción",
+    "Azulejos y lechada (grout) en buen estado",
+    "Sellado de silicona sin moho",
+    "Espejo / botiquín",
+    "Extractor / ventilación funciona",
+    "Tomacorriente GFCI"
+  ]},
+  { icon:"🌅", title:"Balcón", items:[
+    "Piso / superficie sin daños",
+    "Barandilla (railing) firme y segura",
+    "Puerta corrediza: rieles y deslizamiento",
+    "Cerradura de la puerta corrediza",
+    "Vidrio de la puerta sin roturas",
+    "Drenaje del balcón despejado"
+  ]},
+  { icon:"❄️", title:"Climatización (A/C)", items:[
+    "A/C enfría correctamente",
+    "Termostato responde y ajusta",
+    "Filtro de aire limpio (anotar estado)",
+    "Rejillas / conductos sin daños",
+    "Sin ruidos anormales ni goteo de la unidad"
+  ]},
+  { icon:"🔥", title:"Calentador de agua (therma)", items:[
+    "Calienta agua correctamente",
+    "Sin fugas en el tanque ni conexiones",
+    "Válvula de alivio de presión presente",
+    "Temperatura adecuada (no excesiva)"
+  ]},
+  { icon:"🧺", title:"Lavandería", items:[
+    "Lavadora: enciende y completa ciclo",
+    "Lavadora sin fugas en mangueras",
+    "Conexiones de agua (caliente/fría) sin goteo",
+    "Desagüe de lavadora libre",
+    "Secadora si aplica: enciende y calienta",
+    "Ducto/ventilación de secadora limpio"
+  ]},
+  { icon:"🔧", title:"Plomería general", items:[
+    "Presión de agua general adecuada",
+    "Sin fugas bajo fregaderos y lavamanos",
+    "Sin manchas de humedad por tuberías",
+    "Todos los drenajes fluyen bien",
+    "Llave de paso general localizada y operable"
+  ]},
+  { icon:"⚡", title:"Eléctrico y seguridad", items:[
+    "Panel eléctrico / breakers en orden",
+    "Detectores de humo funcionan (con batería)",
+    "Detector de monóxido de carbono (si aplica)",
+    "Sin tomacorrientes flojos o quemados",
+    "Iluminación de pasillos / exteriores"
+  ]},
+  { icon:"📋", title:"Cierre general", items:[
+    "Sin olores a humedad o moho",
+    "Sin señales de plagas (insectos/roedores)",
+    "Limpieza general de la unidad",
+    "Controles remotos entregados (A/C, ventiladores)",
+    "Lecturas de medidores (anotar en nota)",
+    "Fotos tomadas de cualquier daño"
+  ]}
+];
+
+/* ---------- Render ---------- */
+const state = {}; // id -> { status, note }
+const STATUSES = [
+  {key:"bien", label:"Bien"},
+  {key:"obs",  label:"Observación"},
+  {key:"mal",  label:"Problema"}
+];
+let TOTAL = 0;
+const cont = document.getElementById("sections");
+
+DATA.forEach((sec, si) => {
+  const sEl = document.createElement("div");
+  sEl.className = "section" + (si === 0 ? " open" : "");
+  let itemsHtml = "";
+  sec.items.forEach((label, ii) => {
+    const id = `s${si}_i${ii}`;
+    TOTAL++;
+    state[id] = { status:null, note:"", label, section:sec.title };
+    const btns = STATUSES.map(s =>
+      `<button class="state-btn ${s.key}" data-id="${id}" data-st="${s.key}">${s.label}</button>`
+    ).join("");
+    itemsHtml += `
+      <div class="item" data-item="${id}">
+        <div class="item-top">
+          <div class="item-label">${label}</div>
+          <div class="states">${btns}</div>
+        </div>
+        <textarea class="note" data-note="${id}" placeholder="Nota / detalle (opcional)" rows="2"></textarea>
+      </div>`;
+  });
+  sEl.innerHTML = `
+    <div class="section-head">
+      <div class="section-icon">${sec.icon}</div>
+      <div class="section-title">${sec.title}</div>
+      <div class="section-count" data-sc="${si}">0/${sec.items.length}</div>
+      <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-tools"><button class="mini-btn" data-allgood="${si}">✓ Marcar todo "Bien"</button></div>
+      ${itemsHtml}
+    </div>`;
+  cont.appendChild(sEl);
+});
+
+document.getElementById("fb-total").textContent = TOTAL;
+
+/* ---------- Interacciones ---------- */
+cont.addEventListener("click", (e) => {
+  const head = e.target.closest(".section-head");
+  if (head && !e.target.closest(".state-btn")) {
+    head.parentElement.classList.toggle("open");
+  }
+  const stBtn = e.target.closest(".state-btn");
+  if (stBtn) {
+    const id = stBtn.dataset.id, st = stBtn.dataset.st;
+    state[id].status = (state[id].status === st) ? null : st;
+    refreshItem(id);
+    recalc();
+  }
+  const allgood = e.target.closest("[data-allgood]");
+  if (allgood) {
+    const si = allgood.dataset.allgood;
+    Object.keys(state).forEach(id => {
+      if (id.startsWith(`s${si}_`)) { if(!state[id].status) state[id].status = "bien"; refreshItem(id); }
+    });
+    recalc();
+  }
+});
+cont.addEventListener("input", (e) => {
+  const n = e.target.closest("[data-note]");
+  if (n) state[n.dataset.note].note = n.value;
+});
+
+function refreshItem(id){
+  const item = document.querySelector(`[data-item="${id}"]`);
+  item.querySelectorAll(".state-btn").forEach(b=>{
+    b.classList.toggle("on", b.dataset.st === state[id].status);
+  });
+  const note = item.querySelector(`[data-note="${id}"]`);
+  note.classList.toggle("show", state[id].status === "obs" || state[id].status === "mal");
+}
+
+function recalc(){
+  let rev=0, ok=0, obs=0, bad=0;
+  const perSec = {};
+  Object.keys(state).forEach(id=>{
+    const s = state[id].status;
+    const si = id.split("_")[0].slice(1);
+    perSec[si] = perSec[si] || {done:0,total:0};
+    perSec[si].total++;
+    if(s){ rev++; perSec[si].done++; if(s==="bien")ok++; else if(s==="obs")obs++; else bad++; }
+  });
+  document.getElementById("st-rev").textContent = rev;
+  document.getElementById("st-ok").textContent  = ok;
+  document.getElementById("st-obs").textContent = obs;
+  document.getElementById("st-bad").textContent = bad;
+  document.getElementById("fb-rev").textContent = rev;
+  document.getElementById("fb-bad").textContent = bad;
+  document.getElementById("fill").style.width = (rev/TOTAL*100).toFixed(1)+"%";
+  Object.keys(perSec).forEach(si=>{
+    const el = document.querySelector(`[data-sc="${si}"]`);
+    el.textContent = `${perSec[si].done}/${perSec[si].total}`;
+    el.classList.toggle("done", perSec[si].done === perSec[si].total);
+  });
+}
+
+/* ---------- Fecha por defecto ---------- */
+(function(){
+  const d = new Date();
+  document.getElementById("fecha").value = d.toISOString().slice(0,10);
+})();
+
+/* ---------- Construcción del reporte ---------- */
+function buildReport(){
+  const insp = document.getElementById("inspector").value.trim() || "(sin nombre)";
+  const fecha = document.getElementById("fecha").value || "(sin fecha)";
+  const uni = document.getElementById("unidad").value.trim() || "APT 315R";
+  let rev=0, ok=0, obs=0, bad=0;
+  Object.values(state).forEach(s=>{ if(s.status){rev++; if(s.status==="bien")ok++; else if(s.status==="obs")obs++; else bad++;}});
+
+  const lines = [];
+  lines.push("INSPECCIÓN DE UNIDAD — REPORTE");
+  lines.push("======================================");
+  lines.push(`Dirección: 12501 SW 14th St, ${uni}, Hollywood, FL 33027`);
+  lines.push(`Inspector(es): ${insp}`);
+  lines.push(`Fecha: ${fecha}`);
+  lines.push("");
+  lines.push(`Resumen: ${rev}/${TOTAL} revisados  |  Bien: ${ok}  |  Observaciones: ${obs}  |  Problemas: ${bad}`);
+  lines.push("======================================");
+  lines.push("");
+
+  const map = {bien:"✅ BIEN", obs:"⚠️ OBSERVACIÓN", mal:"❌ PROBLEMA", null:"⬜ sin revisar"};
+  DATA.forEach((sec, si)=>{
+    lines.push(`■ ${sec.title.toUpperCase()}`);
+    sec.items.forEach((label, ii)=>{
+      const id = `s${si}_i${ii}`;
+      const s = state[id];
+      let row = `   ${map[s.status] || map.null}  ${label}`;
+      if(s.note && s.note.trim()) row += `\n        ↳ Nota: ${s.note.trim()}`;
+      lines.push(row);
+    });
+    lines.push("");
+  });
+
+  // lista destacada de problemas/observaciones
+  const flagged = [];
+  Object.values(state).forEach(s=>{
+    if(s.status==="mal"||s.status==="obs"){
+      flagged.push(`${s.status==="mal"?"❌":"⚠️"} [${s.section}] ${s.label}${s.note?` — ${s.note.trim()}`:""}`);
+    }
+  });
+  if(flagged.length){
+    lines.push("--------------------------------------");
+    lines.push("PUNTOS QUE REQUIEREN ATENCIÓN:");
+    flagged.forEach(f=>lines.push("  • "+f));
+    lines.push("");
+  }
+  lines.push("Reporte generado desde la app de inspección.");
+
+  return {
+    subject:`Inspección ${uni} — ${fecha} (${bad} problemas, ${obs} obs.)`,
+    body:lines.join("\n"),
+    rev
+  };
+}
+
+/* ---------- Toast ---------- */
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove("show"), 4200);
+}
+
+/* ---------- Envío ---------- */
+async function sendReport(){
+  const r = buildReport();
+  if(r.rev === 0){ toast("Marca al menos un ítem antes de enviar."); return; }
+
+  if(WEB3FORMS_ACCESS_KEY){
+    try{
+      toast("Enviando…");
+      const res = await fetch("https://api.web3forms.com/submit",{
+        method:"POST",
+        headers:{"Content-Type":"application/json", Accept:"application/json"},
+        body:JSON.stringify({
+          access_key:WEB3FORMS_ACCESS_KEY,
+          subject:r.subject,
+          from_name:"Inspección de Unidad",
+          email:TO_EMAIL,
+          cc:CC_EMAIL,
+          message:r.body
+        })
+      });
+      const out = await res.json();
+      if(out.success){ toast("✅ Reporte enviado por email."); }
+      else { toast("No se pudo enviar automáticamente. Abriendo tu correo…"); mailtoFallback(r); }
+    }catch(err){ toast("Error de red. Abriendo tu correo…"); mailtoFallback(r); }
+  } else {
+    mailtoFallback(r);
+  }
+}
+function mailtoFallback(r){
+  const url = `mailto:${TO_EMAIL}?cc=${CC_EMAIL}`+
+              `&subject=${encodeURIComponent(r.subject)}`+
+              `&body=${encodeURIComponent(r.body)}`;
+  window.location.href = url;
+}
+
+document.getElementById("send-main").addEventListener("click", sendReport);
+document.getElementById("send-foot").addEventListener("click", ()=>{
+  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+  sendReport();
+});
+
+recalc();
+</script>
+</body>
+</html>
