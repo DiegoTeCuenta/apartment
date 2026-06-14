@@ -3,608 +3,500 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Inspección de Unidad · Checklist</title>
+<title>En renta · 12501 SW 14th St, Apt 315R · Hollywood, FL</title>
+<meta name="description" content="Condo de 2 dormitorios y 2 baños en renta — Century Village 55+, Hollywood, FL. Cable, internet y agua incluidos. Balcón privado, piscina, tenis y golf." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#0b0f14;
-    --bg-2:#0f151c;
-    --panel:#141b24;
-    --panel-2:#19222d;
-    --line:#243140;
-    --line-soft:#1b2530;
-    --txt:#e8eef5;
-    --txt-dim:#9fb0c0;
-    --txt-faint:#67788a;
-    --teal:#2fd6c4;
-    --teal-dim:#1c8a80;
-    --amber:#f6b24b;
-    --red:#ff6b6b;
-    --green:#43d782;
-    --radius:16px;
-    --shadow:0 18px 50px -20px rgba(0,0,0,.7);
+    --paper:#FBF8F1;--paper-2:#F3EDE0;--ink:#1E2A22;--ink-soft:#445046;
+    --green:#2E6B4F;--green-deep:#1C4634;--green-bright:#3C8A66;--gold:#C2964A;
+    --line:#E4DCC9;--shadow:0 24px 60px -28px rgba(28,70,52,.45);--r:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:'Manrope',system-ui,sans-serif;
-    background:
-      radial-gradient(1100px 600px at 80% -10%, rgba(47,214,196,.10), transparent 60%),
-      radial-gradient(900px 500px at -10% 10%, rgba(246,178,75,.07), transparent 55%),
-      var(--bg);
-    color:var(--txt);
-    line-height:1.5;
-    padding-bottom:120px;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:860px;margin:0 auto;padding:28px 20px 60px}
-
-  /* ---------- Header ---------- */
-  header.hero{
-    position:relative;
-    border:1px solid var(--line);
-    background:linear-gradient(165deg,var(--panel) 0%,var(--bg-2) 100%);
-    border-radius:var(--radius);
-    padding:30px 28px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-  }
-  header.hero::before{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,var(--teal),transparent);
-    height:3px;opacity:.9;
-  }
-  .badge{
-    display:inline-flex;align-items:center;gap:7px;
-    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--teal);font-weight:600;
-    border:1px solid var(--teal-dim);border-radius:999px;
-    padding:5px 12px;margin-bottom:16px;
-  }
-  .badge span.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
-  h1{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.7rem,4.5vw,2.5rem);letter-spacing:-.02em;line-height:1.05}
-  h1 .accent{color:var(--teal)}
-  .addr{color:var(--txt-dim);margin-top:8px;font-size:.96rem}
-  .specs{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px}
-  .spec{display:flex;align-items:baseline;gap:6px}
-  .spec b{font-family:'Sora',sans-serif;font-size:1.15rem;color:var(--txt)}
-  .spec small{color:var(--txt-faint);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
-
-  .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:24px}
-  .field label{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-faint);margin-bottom:6px;font-weight:600}
-  .field input{
-    width:100%;background:var(--bg-2);border:1px solid var(--line);
-    color:var(--txt);padding:11px 13px;border-radius:10px;font-family:inherit;font-size:.92rem;
-    transition:border-color .15s,box-shadow .15s;
-  }
-  .field input:focus{outline:none;border-color:var(--teal-dim);box-shadow:0 0 0 3px rgba(47,214,196,.12)}
-
-  /* ---------- Progress ---------- */
-  .progress-card{
-    margin-top:18px;border:1px solid var(--line);background:var(--panel);
-    border-radius:var(--radius);padding:18px 22px;
-    display:flex;align-items:center;gap:22px;flex-wrap:wrap;
-    position:sticky;top:14px;z-index:30;backdrop-filter:blur(8px);
-    box-shadow:var(--shadow);
-  }
-  .progress-bar{flex:1;min-width:160px;height:9px;background:var(--bg-2);border-radius:999px;overflow:hidden;border:1px solid var(--line-soft)}
-  .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal-dim),var(--teal));transition:width .35s ease;border-radius:999px}
-  .progress-stats{display:flex;gap:18px;font-size:.85rem}
-  .pstat{display:flex;flex-direction:column;line-height:1.1}
-  .pstat b{font-family:'Sora',sans-serif;font-size:1.25rem}
-  .pstat small{color:var(--txt-faint);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em}
-  .pstat.ok b{color:var(--green)} .pstat.obs b{color:var(--amber)} .pstat.bad b{color:var(--red)}
-
-  /* ---------- Sections ---------- */
-  .section{
-    margin-top:18px;border:1px solid var(--line);background:var(--panel);
-    border-radius:var(--radius);overflow:hidden;
-  }
-  .section-head{
-    display:flex;align-items:center;gap:14px;cursor:pointer;
-    padding:18px 22px;user-select:none;transition:background .15s;
-  }
-  .section-head:hover{background:var(--panel-2)}
-  .section-icon{font-size:1.3rem;width:34px;height:34px;display:grid;place-items:center;
-    background:var(--bg-2);border:1px solid var(--line);border-radius:10px;flex-shrink:0}
-  .section-title{font-family:'Sora',sans-serif;font-weight:600;font-size:1.05rem;flex:1}
-  .section-count{font-size:.78rem;color:var(--txt-faint);background:var(--bg-2);border:1px solid var(--line-soft);
-    padding:3px 10px;border-radius:999px}
-  .section-count.done{color:var(--green);border-color:var(--teal-dim)}
-  .chev{transition:transform .25s;color:var(--txt-dim)}
-  .section.open .chev{transform:rotate(180deg)}
-  .section-body{display:none;padding:4px 16px 14px;border-top:1px solid var(--line-soft)}
-  .section.open .section-body{display:block}
-
-  .item{padding:14px 6px;border-bottom:1px solid var(--line-soft)}
-  .item:last-child{border-bottom:none}
-  .item-top{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
-  .item-label{flex:1;min-width:170px;font-size:.95rem;padding-top:5px}
-  .states{display:flex;gap:7px}
-  .state-btn{
-    border:1px solid var(--line);background:var(--bg-2);color:var(--txt-dim);
-    padding:7px 12px;border-radius:9px;font-family:inherit;font-size:.82rem;font-weight:600;
-    cursor:pointer;transition:all .14s;white-space:nowrap;
-  }
-  .state-btn:hover{border-color:var(--txt-faint);color:var(--txt)}
-  .state-btn.on.bien{background:rgba(67,215,130,.16);border-color:var(--green);color:var(--green)}
-  .state-btn.on.obs{background:rgba(246,178,75,.16);border-color:var(--amber);color:var(--amber)}
-  .state-btn.on.mal{background:rgba(255,107,107,.16);border-color:var(--red);color:var(--red)}
-  .note{
-    margin-top:10px;width:100%;background:var(--bg-2);border:1px solid var(--line-soft);
-    color:var(--txt);padding:9px 12px;border-radius:9px;font-family:inherit;font-size:.88rem;
-    resize:vertical;min-height:0;display:none;
-  }
-  .note.show{display:block}
-  .note:focus{outline:none;border-color:var(--teal-dim);box-shadow:0 0 0 3px rgba(47,214,196,.10)}
-  .note::placeholder{color:var(--txt-faint)}
-
-  .section-tools{display:flex;justify-content:flex-end;padding:6px 4px 2px}
-  .mini-btn{background:none;border:1px solid var(--line);color:var(--txt-dim);font-family:inherit;
-    font-size:.76rem;padding:5px 11px;border-radius:8px;cursor:pointer;transition:all .14s}
-  .mini-btn:hover{border-color:var(--green);color:var(--green)}
-
-  /* ---------- Send ---------- */
-  .send-zone{margin-top:26px;border:1px solid var(--line);background:linear-gradient(165deg,var(--panel),var(--bg-2));
-    border-radius:var(--radius);padding:26px;text-align:center}
-  .send-zone h3{font-family:'Sora',sans-serif;font-weight:700;font-size:1.25rem;margin-bottom:6px}
-  .send-zone p{color:var(--txt-dim);font-size:.9rem;margin-bottom:18px}
-  .recipients{font-size:.8rem;color:var(--txt-faint);margin-top:14px}
-  .recipients code{color:var(--teal);background:var(--bg-2);padding:2px 7px;border-radius:6px;font-size:.78rem}
-
-  .btn-primary{
-    display:inline-flex;align-items:center;gap:10px;justify-content:center;
-    background:linear-gradient(135deg,var(--teal),var(--teal-dim));
-    color:#04221f;font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;
-    border:none;padding:15px 30px;border-radius:12px;cursor:pointer;
-    box-shadow:0 12px 30px -10px rgba(47,214,196,.55);transition:transform .12s,box-shadow .12s;
-  }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(47,214,196,.7)}
-  .btn-primary:active{transform:translateY(0)}
-
-  /* ---------- Sticky footer ---------- */
-  .footbar{
-    position:fixed;left:0;right:0;bottom:0;z-index:40;
-    background:rgba(11,15,20,.86);backdrop-filter:blur(12px);border-top:1px solid var(--line);
-    padding:12px 20px;display:flex;align-items:center;gap:16px;justify-content:space-between;
-  }
-  .footbar .fb-stats{display:flex;gap:16px;font-size:.82rem;color:var(--txt-dim)}
-  .footbar .fb-stats b{color:var(--txt);font-family:'Sora',sans-serif}
-  .footbar .fb-send{
-    background:linear-gradient(135deg,var(--teal),var(--teal-dim));color:#04221f;
-    border:none;font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;
-    padding:11px 20px;border-radius:10px;cursor:pointer;white-space:nowrap;
-  }
-  .toast{
-    position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
-    background:var(--panel-2);border:1px solid var(--teal-dim);color:var(--txt);
-    padding:13px 20px;border-radius:11px;font-size:.9rem;box-shadow:var(--shadow);
-    opacity:0;pointer-events:none;transition:all .3s;z-index:60;max-width:90%;text-align:center;
-  }
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-  footer.credit{text-align:center;color:var(--txt-faint);font-size:.75rem;margin-top:34px}
-  @media(max-width:560px){
-    .footbar .fb-stats{flex-direction:column;gap:2px}
-    .state-btn{padding:7px 10px;font-size:.78rem}
-  }
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.1;letter-spacing:-.01em}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .topbar{position:sticky;top:0;z-index:60;background:rgba(251,248,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1120px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;gap:16px}
+  .tb-price{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:var(--green-deep);line-height:1}
+  .tb-price small{display:block;font-family:'Figtree',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.04em;color:var(--ink-soft);text-transform:uppercase;margin-top:3px}
+  .tb-addr{color:var(--ink-soft);font-size:.9rem;flex:1;min-width:0}
+  .tb-addr b{color:var(--ink);font-weight:600}
+  .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+  .lang button{border:none;background:none;font-family:inherit;font-weight:700;font-size:.82rem;padding:9px 13px;cursor:pointer;color:var(--ink-soft);min-height:42px}
+  .lang button.on{background:var(--green);color:#fff}
+  .btn-call{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#fff;font-weight:700;font-size:1rem;padding:13px 22px;border-radius:999px;text-decoration:none;white-space:nowrap;box-shadow:0 10px 24px -10px rgba(46,107,79,.7);transition:background .15s,transform .12s;min-height:50px}
+  .btn-call:hover{background:var(--green-deep);transform:translateY(-1px)}
+  .btn-call svg{width:20px;height:20px}
+  @media(max-width:760px){.tb-addr{display:none}}
+  @media(max-width:430px){.btn-call span{display:none}}
+  .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,35,28,.18) 0%,rgba(20,35,28,.05) 35%,rgba(20,35,28,.72) 100%)}
+  .hero-in{position:relative;z-index:2;max-width:1120px;margin:0 auto;width:100%;padding:48px 26px 54px;color:#fff}
+  .hero .eyebrow{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(4px);padding:7px 16px;border-radius:999px;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px}
+  .hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35);max-width:15ch}
+  .hero .sub{font-size:1.15rem;margin-top:14px;color:rgba(255,255,255,.95);text-shadow:0 1px 14px rgba(0,0,0,.4);max-width:42ch}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin:26px 0 28px;align-items:baseline}
+  .hero-price{font-family:'Fraunces',serif;font-weight:700;font-size:2.6rem;line-height:1}
+  .hero-price span{font-family:'Figtree',sans-serif;font-size:1rem;font-weight:500;opacity:.9}
+  .hero-specs{display:flex;gap:22px;font-size:1.05rem;font-weight:600}
+  .hero-specs i{font-style:normal;opacity:.7;font-weight:400}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn-ghost-light{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.7);color:#fff;font-weight:600;font-size:1.02rem;padding:14px 26px;border-radius:999px;text-decoration:none;min-height:52px;transition:background .15s}
+  .btn-ghost-light:hover{background:rgba(255,255,255,.24)}
+  .btn-solid{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--green-deep);font-weight:700;font-size:1.02rem;padding:14px 28px;border-radius:999px;text-decoration:none;min-height:52px;transition:transform .12s}
+  .btn-solid:hover{transform:translateY(-2px)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+  .block{padding:64px 0}
+  .eyebrow-d{display:flex;align-items:center;gap:12px;color:var(--green);font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+  .eyebrow-d::before{content:"";width:30px;height:2px;background:var(--gold)}
+  .block h2{font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--ink);max-width:20ch}
+  .lead{font-size:1.12rem;color:var(--ink-soft);margin-top:14px;max-width:62ch}
+  .facts{background:var(--green-deep);color:#fff}
+  .facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.13)}
+  .fact{background:var(--green-deep);padding:26px 18px;text-align:center}
+  .fact b{display:block;font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;line-height:1.05}
+  .fact small{display:block;color:rgba(255,255,255,.78);font-size:.84rem;margin-top:6px;letter-spacing:.02em}
+  @media(max-width:760px){.facts-grid{grid-template-columns:repeat(2,1fr)}}
+  .video-card{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:#000;margin-top:8px}
+  .video-card video{width:100%;display:block;max-height:560px;object-fit:cover;background:#000}
+  .vcaption{display:flex;align-items:center;gap:10px;margin-top:14px;color:var(--ink-soft);font-size:.98rem}
+  .vcaption svg{width:18px;height:18px;color:var(--green);flex-shrink:0}
+  .aerials{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .aerial{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 36px -24px rgba(28,70,52,.5);position:relative}
+  .aerial img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;transition:transform .4s}
+  .aerial:hover img{transform:scale(1.03)}
+  .aerial.wide{grid-column:1 / -1;aspect-ratio:16/7}
+  .aerial .tag{position:absolute;left:14px;bottom:14px;background:rgba(28,70,52,.86);color:#fff;font-size:.84rem;font-weight:600;padding:7px 13px;border-radius:8px;backdrop-filter:blur(3px)}
+  .nearby{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper-2);border:1px solid var(--line);padding:9px 16px;border-radius:999px;font-weight:600;font-size:.96rem;color:var(--ink)}
+  .chip i{font-style:normal;color:var(--green);font-size:1.05rem}
+  @media(max-width:760px){.aerials{grid-template-columns:1fr}.aerial.wide{aspect-ratio:16/9}}
+  .band{position:relative;height:50vh;min-height:340px;overflow:hidden;display:flex;align-items:center}
+  .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,35,28,.7),rgba(20,35,28,.15));z-index:1}
+  .band-txt{position:relative;z-index:2;color:#fff;max-width:1120px;margin:0 auto;padding:0 26px;width:100%}
+  .band-txt h3{font-size:clamp(1.6rem,3.4vw,2.4rem);color:#fff;max-width:18ch;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+  .stops{position:relative;margin-top:34px}
+  .stop{position:relative;padding:0 0 46px 64px}
+  .stop:last-child{padding-bottom:0}
+  .stop::before{content:"";position:absolute;left:21px;top:6px;bottom:-6px;width:2px;background:var(--line)}
+  .stop:last-child::before{display:none}
+  .stop .num{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;box-shadow:0 0 0 5px var(--paper)}
+  .stop h3{font-size:1.5rem;color:var(--ink)}
+  .stop .room-note{color:var(--ink-soft);font-size:1rem;margin-top:3px}
+  .shots{display:grid;gap:14px;margin-top:18px}
+  .shots.g1{grid-template-columns:1fr}
+  .shots.g2{grid-template-columns:1fr 1fr}
+  .shots.g3{grid-template-columns:repeat(3,1fr)}
+  .shots.g4{grid-template-columns:repeat(2,1fr)}
+  .shot{border-radius:13px;overflow:hidden;border:1px solid var(--line);background:var(--paper-2);box-shadow:0 12px 30px -22px rgba(28,70,52,.55)}
+  .shot img{width:100%;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in;transition:transform .4s}
+  .shot:hover img{transform:scale(1.04)}
+  @media(max-width:760px){.shots.g2,.shots.g3,.shots.g4{grid-template-columns:1fr 1fr}.stop{padding-left:54px}.stop .num{width:38px;height:38px;font-size:1rem}.stop::before{left:18px}}
+  @media(max-width:460px){.shots.g2,.shots.g3,.shots.g4{grid-template-columns:1fr}}
+  .details{background:var(--paper-2)}
+  .det-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;margin-top:30px}
+  .det-col h3{font-size:1.3rem;color:var(--green-deep);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .det-col h3 svg{width:22px;height:22px;color:var(--green);flex-shrink:0}
+  .det-list{list-style:none}
+  .det-list li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:1.04rem}
+  .det-list li:last-child{border-bottom:none}
+  .det-list li::before{content:"✓";color:var(--green);font-weight:800;flex-shrink:0}
+  @media(max-width:760px){.det-grid{grid-template-columns:1fr;gap:34px}}
+  .contact{background:var(--green-deep);color:#fff}
+  .contact-in{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .contact h2{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem)}
+  .contact .lead{color:rgba(255,255,255,.85)}
+  .agent-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:var(--r);padding:30px}
+  .agent-card .role{color:var(--gold);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+  .agent-card .name{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;margin:6px 0 2px}
+  .agent-card .firm{color:rgba(255,255,255,.7);font-size:.95rem;margin-bottom:20px}
+  .agent-card a.line{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;padding:15px 18px;border-radius:12px;background:rgba(255,255,255,.08);margin-bottom:12px;font-size:1.1rem;font-weight:600;min-height:56px;transition:background .15s}
+  .agent-card a.line:hover{background:rgba(255,255,255,.18)}
+  .agent-card a.line svg{width:22px;height:22px;color:var(--gold);flex-shrink:0}
+  .agent-card a.line.phone{background:#fff;color:var(--green-deep)}
+  .agent-card a.line.phone svg{color:var(--green)}
+  .agent-card a.line.phone:hover{background:#f0f0f0}
+  @media(max-width:760px){.contact-in{grid-template-columns:1fr;gap:28px}}
+  footer.ft{background:var(--ink);color:rgba(255,255,255,.72);font-size:.86rem;line-height:1.6}
+  footer.ft .wrap{padding-top:30px;padding-bottom:30px}
+  footer.ft b{color:#fff}
+  footer.ft .legal{margin-top:12px;font-size:.8rem;color:rgba(255,255,255,.5)}
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(15,22,18,.94);display:none;align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:84vh;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb-close,.lb-nav{position:absolute;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;cursor:pointer;display:grid;place-items:center;border-radius:50%;transition:background .15s}
+  .lb-close{top:20px;right:20px;width:54px;height:54px;font-size:1.6rem}
+  .lb-close:hover,.lb-nav:hover{background:rgba(255,255,255,.3)}
+  .lb-nav{top:50%;transform:translateY(-50%);width:58px;height:58px;font-size:2rem}
+  .lb-prev{left:18px}.lb-next{right:18px}
+  .lb-cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#fff;font-size:1rem;font-weight:600;text-shadow:0 1px 8px rgba(0,0,0,.6);padding:0 70px}
+  @media(max-width:560px){.lb-nav{width:46px;height:46px}.lb-close{width:48px;height:48px}}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;transition:none}.aerial img,.shot img{transition:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="hero">
-    <div class="badge"><span class="dot"></span> Inspección de unidad · entrega</div>
-    <h1>Checklist de <span class="accent">Inspección</span></h1>
-    <p class="addr">12501 SW 14th St, APT 315R · Hollywood, FL 33027</p>
-    <div class="specs">
-      <div class="spec"><b>2</b><small>habitaciones</small></div>
-      <div class="spec"><b>2</b><small>baños</small></div>
-      <div class="spec"><b>1,190</b><small>sqft</small></div>
-      <div class="spec"><b>Balcón</b><small>incluido</small></div>
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="tb-price">$2,200<small data-i18n="price_per">por mes</small></div>
+    <div class="tb-addr"><b>12501 SW 14th St, Apt 315R</b> · Hollywood, FL 33027</div>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button id="lng-es" onclick="setLang('es')">ES</button>
+      <button id="lng-en" onclick="setLang('en')">EN</button>
     </div>
-    <div class="meta">
-      <div class="field"><label>Inspector(es)</label><input id="inspector" type="text" placeholder="Tu nombre" /></div>
-      <div class="field"><label>Fecha</label><input id="fecha" type="date" /></div>
-      <div class="field"><label>Unidad</label><input id="unidad" type="text" value="APT 315R" /></div>
-    </div>
-  </header>
-
-  <div class="progress-card">
-    <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
-    <div class="progress-stats">
-      <div class="pstat"><b id="st-rev">0</b><small>revisados</small></div>
-      <div class="pstat ok"><b id="st-ok">0</b><small>bien</small></div>
-      <div class="pstat obs"><b id="st-obs">0</b><small>obs.</small></div>
-      <div class="pstat bad"><b id="st-bad">0</b><small>problemas</small></div>
-    </div>
+    <a class="btn-call" href="#contacto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span data-i18n="nav_contact">Contactar</span>
+    </a>
   </div>
-
-  <div id="sections"></div>
-
-  <div class="send-zone">
-    <h3>Enviar resultados</h3>
-    <p>Genera el reporte con todos los ítems, observaciones y notas.</p>
-    <button class="btn-primary" id="send-main">📨 Enviar reporte por email</button>
-    <p class="recipients">Para: <code>yoniob@hotmail.com</code> · CC: <code>divegob75@gmail.com</code></p>
-  </div>
-
-  <footer class="credit">Generado para inspección de entrega · marca cada ítem como Bien / Observación / Problema</footer>
 </div>
 
-<div class="footbar">
-  <div class="fb-stats">
-    <span>Revisados: <b id="fb-rev">0</b>/<b id="fb-total">0</b></span>
-    <span>Problemas: <b id="fb-bad">0</b></span>
+<header class="hero">
+  <img class="bg" src="10_living01ok_result.webp" alt="" />
+  <div class="hero-in">
+    <span class="eyebrow" data-i18n="hero_eyebrow">En renta · Comunidad 55+</span>
+    <h1 data-i18n="hero_h1">Tu próximo hogar, entre jardines</h1>
+    <p class="sub" data-i18n="hero_sub">Un 2 dormitorios luminoso y tranquilo, con balcón privado sobre las áreas verdes y la piscina.</p>
+    <div class="hero-meta">
+      <div class="hero-price">$2,200 <span data-i18n="hero_permo">/ mes</span></div>
+      <div class="hero-specs">
+        <span>2 <i data-i18n="spec_beds">dorm.</i></span>
+        <span>2 <i data-i18n="spec_baths">baños</i></span>
+        <span>1,190 <i>sqft</i></span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn-solid" href="#contacto" data-i18n="btn_call">Llamar a la agente</a>
+      <a class="btn-ghost-light" href="#recorrido" data-i18n="btn_tour">Ver el recorrido</a>
+    </div>
   </div>
-  <button class="fb-send" id="send-foot">Enviar reporte →</button>
-</div>
+</header>
 
-<div class="toast" id="toast"></div>
+<section class="facts"><div class="facts-grid" id="facts"></div></section>
+
+<section class="block" id="ubicacion">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow-d" data-i18n="loc_eyebrow">Dónde está</div>
+      <h2 data-i18n="loc_h2">Century Village, Hollywood</h2>
+      <p class="lead" data-i18n="loc_lead"></p>
+    </div>
+    <div class="video-card reveal">
+      <video id="locvideo" poster="location_poster.jpg" muted loop playsinline preload="metadata" controls>
+        <source src="location_clip01.webm" type="video/webm" />
+      </video>
+    </div>
+    <p class="vcaption reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span data-i18n="loc_vcap"></span>
+    </p>
+    <div class="aerials reveal" id="aerials"></div>
+    <div class="nearby reveal" id="chips"></div>
+  </div>
+</section>
+
+<section class="band">
+  <img src="20_balcony03_result.webp" alt="" />
+  <div class="band-txt"><h3 data-i18n="band">Mañanas tranquilas mirando al verde</h3></div>
+</section>
+
+<section class="block" id="recorrido">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow-d" data-i18n="tour_eyebrow">El recorrido</div>
+      <h2 data-i18n="tour_h2">Como si caminaras el departamento</h2>
+      <p class="lead" data-i18n="tour_lead"></p>
+    </div>
+    <div class="stops" id="stops"></div>
+  </div>
+</section>
+
+<section class="block details" id="detalles">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow-d" data-i18n="det_eyebrow">Detalles</div>
+      <h2 data-i18n="det_h2">Lo que incluye</h2>
+    </div>
+    <div class="det-grid reveal" id="details"></div>
+  </div>
+</section>
+
+<section class="block contact" id="contacto">
+  <div class="wrap contact-in">
+    <div class="reveal">
+      <div class="eyebrow-d" style="color:var(--gold)" data-i18n="contact_eyebrow">Agenda tu visita</div>
+      <h2 data-i18n="contact_h2">¿Te gustaría conocerlo?</h2>
+      <p class="lead" data-i18n="contact_lead"></p>
+    </div>
+    <div class="agent-card reveal">
+      <div class="role" data-i18n="agent_role">Agente inmobiliaria</div>
+      <div class="name" id="ag-name">Mariem Garcia</div>
+      <div class="firm" id="ag-firm">Galleria International at Compass</div>
+      <a class="line phone" id="ag-phone" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span id="ag-phone-txt">(000) 000-0000</span>
+      </a>
+      <a class="line" id="ag-email" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <span id="ag-email-txt">correo@ejemplo.com</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="ft"><div class="wrap">
+  <b>12501 SW 14th St, Apt 315R · Hollywood, FL 33027</b> — <span data-i18n="footer_main"></span>
+  <div class="legal" data-i18n="footer_legal"></div>
+</div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto">
+  <button class="lb-close" id="lb-close" aria-label="Cerrar / Close">×</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior / Previous">‹</button>
+  <img id="lb-img" src="" alt="" />
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Siguiente / Next">›</button>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
 
 <script>
-/* ============================================================
-   CONFIGURACIÓN DE ENVÍO
-   ------------------------------------------------------------
-   Por defecto usa "mailto" (abre tu app de correo ya rellenada).
-   Funciona en GitHub Pages sin ninguna configuración.
+/* ====== CONFIG — edita solo esto ====== */
+const CONFIG = {
+  agente: {
+    nombre:"Mariem Garcia",
+    firma:"Galleria International at Compass",
+    telefono:"",                 // ej. "+19545551234"
+    telefonoTexto:"(000) 000-0000",
+    correo:""                    // ej. "agente@correo.com"
+  }
+};
 
-   OPCIONAL — envío automático real (sin abrir tu correo):
-   pega abajo una Access Key gratuita de https://web3forms.com
-   (créala con el correo yoniob@hotmail.com). Si la dejas vacía,
-   se usa mailto.
-   ============================================================ */
-const WEB3FORMS_ACCESS_KEY = ""; // <-- pega aquí tu key (opcional)
-const TO_EMAIL  = "yoniob@hotmail.com";
-const CC_EMAIL  = "divegob75@gmail.com";
+/* ====== Textos ES / EN ====== */
+const I18N = {
+ es:{
+  price_per:"por mes", nav_contact:"Contactar",
+  hero_eyebrow:"En renta · Comunidad 55+",
+  hero_h1:"Tu próximo hogar, entre jardines",
+  hero_sub:"Un condo de 2 dormitorios, luminoso y tranquilo, con balcón privado sobre las áreas verdes y la piscina.",
+  hero_permo:"/ mes", spec_beds:"dorm.", spec_baths:"baños",
+  btn_call:"Llamar a la agente", btn_tour:"Ver el recorrido",
+  loc_eyebrow:"Dónde está", loc_h2:"Century Village, Hollywood",
+  loc_lead:"Dentro de una comunidad 55+ cuidada y con seguridad las 24 horas. A minutos de la I-75, con 2 centros comerciales a menos de una milla y shuttle de la comunidad hacia Publix y las tiendas cercanas.",
+  loc_vcap:"Ubicación exacta del apartamento dentro del edificio y su estacionamiento.",
+  band:"Mañanas tranquilas mirando al verde",
+  tour_eyebrow:"El recorrido", tour_h2:"Como si caminaras el departamento",
+  tour_lead:"Desde la entrada hasta la suite principal, siguiendo el orden natural del recorrido. Toca cualquier foto para verla en grande.",
+  det_eyebrow:"Detalles", det_h2:"Lo que incluye",
+  contact_eyebrow:"Agenda tu visita", contact_h2:"¿Te gustaría conocerlo?",
+  contact_lead:"Comunícate con la agente para coordinar una visita o resolver cualquier consulta sobre la renta.",
+  agent_role:"Agente inmobiliaria",
+  footer_main:"Condo en renta en comunidad de adultos 55+. Al menos un inquilino debe tener 55 años o más.",
+  footer_legal:"Las fotografías corresponden a la unidad disponible. Información ofrecida de buena fe (fuente: MLS / Zillow), puede estar sujeta a cambios; verifique los detalles con la agente. Comunidad con restricción de edad (55+). Igualdad de oportunidades de vivienda / Equal Housing Opportunity."
+ },
+ en:{
+  price_per:"per month", nav_contact:"Contact",
+  hero_eyebrow:"For rent · 55+ Community",
+  hero_h1:"Your next home, among the gardens",
+  hero_sub:"A bright, quiet 2-bedroom condo with a private balcony overlooking the gardens and pool.",
+  hero_permo:"/ mo", spec_beds:"beds", spec_baths:"baths",
+  btn_call:"Call the agent", btn_tour:"See the tour",
+  loc_eyebrow:"Location", loc_h2:"Century Village, Hollywood",
+  loc_lead:"Inside a well-kept, 55+ community with 24/7 security. Minutes from I-75, with 2 malls within a mile and a community shuttle to Publix and nearby shopping.",
+  loc_vcap:"Exact location of the unit within the building and its parking space.",
+  band:"Quiet mornings looking out at the green",
+  tour_eyebrow:"The walkthrough", tour_h2:"Like walking through the home",
+  tour_lead:"From the entrance to the primary suite, in the natural order of the walkthrough. Tap any photo to enlarge it.",
+  det_eyebrow:"Details", det_h2:"What's included",
+  contact_eyebrow:"Schedule a visit", contact_h2:"Would you like to see it?",
+  contact_lead:"Reach out to the agent to schedule a showing or ask any questions about the rental.",
+  agent_role:"Listing agent",
+  footer_main:"Condo for rent in a 55+ adult community. At least one renter must be 55 or older.",
+  footer_legal:"Photos are of the available unit. Information provided in good faith (source: MLS / Zillow) and subject to change; verify details with the agent. Age-restricted community (55+). Equal Housing Opportunity."
+ }
+};
 
-/* ---------- Datos del checklist ---------- */
-const DATA = [
-  { icon:"🚪", title:"Acceso y entrada", items:[
-    "Puerta principal: cierra y abre bien",
-    "Cerradura y pestillo funcionan",
-    "Juego de llaves completo (anotar cantidad en nota)",
-    "Mirilla / visor",
-    "Bisagras sin chirridos ni óxido",
-    "Marco y sellos de la puerta en buen estado",
-    "Timbre / intercomunicador funciona"
-  ]},
-  { icon:"🛋️", title:"Sala y comedor", items:[
-    "Paredes sin manchas, golpes ni grietas",
-    "Techo sin humedad ni manchas",
-    "Piso sin azulejos rotos ni rayones",
-    "Ventanas abren, cierran y sellan",
-    "Vidrios sin roturas",
-    "Persianas / blinds funcionan",
-    "Todos los tomacorrientes dan energía",
-    "Interruptores de luz operan",
-    "Luces de techo encienden",
-    "Ventilador de techo gira en sus velocidades"
-  ]},
-  { icon:"🍳", title:"Cocina", items:[
-    "Gabinetes: puertas, bisagras y manijas",
-    "Encimera (countertop) sin daños ni quemaduras",
-    "Fregadero sin fugas; drena bien",
-    "Grifería / mezclador sin goteo",
-    "Refrigerador enfría y congela",
-    "Sellos de puertas del refrigerador",
-    "Estufa: todos los quemadores encienden",
-    "Horno calienta correctamente",
-    "Campana / extractor funciona",
-    "Lavavajillas (dishwasher) cicla sin fugas",
-    "Triturador de basura (disposal) si aplica",
-    "Tomacorrientes GFCI funcionan",
-    "Limpieza general y sin olores"
-  ]},
-  { icon:"🛏️", title:"Habitación principal", items:[
-    "Paredes, techo y piso en buen estado",
-    "Closet: puertas, barras y estantes",
-    "Ventanas y persianas",
-    "Luces e interruptores",
-    "Tomacorrientes funcionan",
-    "Ventilador de techo (si aplica)"
-  ]},
-  { icon:"🛏️", title:"Habitación 2", items:[
-    "Paredes, techo y piso en buen estado",
-    "Closet: puertas, barras y estantes",
-    "Ventanas y persianas",
-    "Luces e interruptores",
-    "Tomacorrientes funcionan",
-    "Ventilador de techo (si aplica)"
-  ]},
-  { icon:"🚽", title:"Baño principal", items:[
-    "Inodoro descarga bien y no corre agua",
-    "Base del inodoro firme y sellada",
-    "Lavamanos y grifería sin fugas",
-    "Ducha/bañera: presión de agua adecuada",
-    "Drenaje de ducha sin obstrucción",
-    "Azulejos y lechada (grout) en buen estado",
-    "Sellado de silicona sin moho",
-    "Espejo / botiquín",
-    "Extractor / ventilación funciona",
-    "Tomacorriente GFCI"
-  ]},
-  { icon:"🚿", title:"Baño 2", items:[
-    "Inodoro descarga bien y no corre agua",
-    "Base del inodoro firme y sellada",
-    "Lavamanos y grifería sin fugas",
-    "Ducha/bañera: presión de agua adecuada",
-    "Drenaje de ducha sin obstrucción",
-    "Azulejos y lechada (grout) en buen estado",
-    "Sellado de silicona sin moho",
-    "Espejo / botiquín",
-    "Extractor / ventilación funciona",
-    "Tomacorriente GFCI"
-  ]},
-  { icon:"🌅", title:"Balcón", items:[
-    "Piso / superficie sin daños",
-    "Barandilla (railing) firme y segura",
-    "Puerta corrediza: rieles y deslizamiento",
-    "Cerradura de la puerta corrediza",
-    "Vidrio de la puerta sin roturas",
-    "Drenaje del balcón despejado"
-  ]},
-  { icon:"❄️", title:"Climatización (A/C)", items:[
-    "A/C enfría correctamente",
-    "Termostato responde y ajusta",
-    "Filtro de aire limpio (anotar estado)",
-    "Rejillas / conductos sin daños",
-    "Sin ruidos anormales ni goteo de la unidad"
-  ]},
-  { icon:"🔥", title:"Calentador de agua (therma)", items:[
-    "Calienta agua correctamente",
-    "Sin fugas en el tanque ni conexiones",
-    "Válvula de alivio de presión presente",
-    "Temperatura adecuada (no excesiva)"
-  ]},
-  { icon:"🧺", title:"Lavandería", items:[
-    "Lavadora: enciende y completa ciclo",
-    "Lavadora sin fugas en mangueras",
-    "Conexiones de agua (caliente/fría) sin goteo",
-    "Desagüe de lavadora libre",
-    "Secadora si aplica: enciende y calienta",
-    "Ducto/ventilación de secadora limpio"
-  ]},
-  { icon:"🔧", title:"Plomería general", items:[
-    "Presión de agua general adecuada",
-    "Sin fugas bajo fregaderos y lavamanos",
-    "Sin manchas de humedad por tuberías",
-    "Todos los drenajes fluyen bien",
-    "Llave de paso general localizada y operable"
-  ]},
-  { icon:"⚡", title:"Eléctrico y seguridad", items:[
-    "Panel eléctrico / breakers en orden",
-    "Detectores de humo funcionan (con batería)",
-    "Detector de monóxido de carbono (si aplica)",
-    "Sin tomacorrientes flojos o quemados",
-    "Iluminación de pasillos / exteriores"
-  ]},
-  { icon:"📋", title:"Cierre general", items:[
-    "Sin olores a humedad o moho",
-    "Sin señales de plagas (insectos/roedores)",
-    "Limpieza general de la unidad",
-    "Controles remotos entregados (A/C, ventiladores)",
-    "Lecturas de medidores (anotar en nota)",
-    "Fotos tomadas de cualquier daño"
-  ]}
+/* ====== Datos bilingües ====== */
+const FACTS=[
+ {b_es:"2 + 2",b_en:"2 + 2",s_es:"Dormitorios y baños",s_en:"Beds & baths"},
+ {b_es:"1,190",b_en:"1,190",s_es:"Pies cuadrados",s_en:"Square feet"},
+ {b_es:"Piso 3",b_en:"3rd floor",s_es:"Sin vecinos arriba",s_en:"No upstairs neighbors"},
+ {b_es:"55+",b_en:"55+",s_es:"Comunidad tranquila",s_en:"Quiet community"},
+ {b_es:"En unidad",b_en:"In-unit",s_es:"Lavadora y secadora",s_en:"Washer & dryer"},
+ {b_es:"Incluidos",b_en:"Included",s_es:"Cable, internet y agua",s_en:"Cable, internet & water"},
+ {b_es:"24/7",b_en:"24/7",s_es:"Acceso con guardia",s_en:"Gated, guard on site"},
+ {b_es:"Balcón",b_en:"Balcony",s_es:"Privado, con vista",s_en:"Private, with a view"}
+];
+const AERIALS=[
+ {full:"aerial_view02.webp",cls:"aerial wide",cap_es:"La zona en su conjunto",cap_en:"The wider area",a:"Aerial / vista aérea"},
+ {full:"aerial_view01.webp",cls:"aerial",cap_es:"Comercios a un paso",cap_en:"Shops nearby",a:"Aerial / vista aérea"},
+ {full:"aerial_view03.webp",cls:"aerial",cap_es:"Piscina y tenis",cap_en:"Pool & tennis",a:"Aerial / vista aérea"}
+];
+const CHIPS=[
+ {es:"Piscina climatizada",en:"Heated pool"},
+ {es:"Canchas de tenis",en:"Tennis courts"},
+ {es:"Campo de golf",en:"Golf course"},
+ {es:"Club house y gimnasio",en:"Clubhouse & gym"},
+ {es:"2 malls a menos de 1 milla",en:"2 malls within a mile"},
+ {es:"Shuttle a Publix",en:"Shuttle to Publix"},
+ {es:"Minutos de la I-75",en:"Minutes to I-75"}
+];
+const DETAILS={
+ interior:{t_es:"Dentro del departamento",t_en:"Inside the home",items:[
+  {es:"2 dormitorios y 2 baños completos",en:"2 bedrooms and 2 full bathrooms"},
+  {es:"Distribución split; ambos dormitorios con vestidor (walk-in), el principal más amplio",en:"Split-bedroom layout; both bedrooms have walk-in closets, larger in the primary"},
+  {es:"Cocina moderna con lavavajillas, triturador, microondas, cocina y refrigerador",en:"Modern kitchen with dishwasher, disposal, microwave, range and refrigerator"},
+  {es:"Lavadora y secadora en la unidad",en:"In-unit washer and dryer"},
+  {es:"Aire acondicionado central; calentador de agua eléctrico",en:"Central A/C; electric water heater"},
+  {es:"Ventanas de alto impacto y blinds incluidos",en:"High-impact glass windows and blinds included"},
+  {es:"Balcón privado cerrado con vista al jardín y la piscina",en:"Private screened balcony with garden and pool view"},
+  {es:"Pisos de cerámica y laminado tipo madera",en:"Tile and wood-look laminate floors"},
+  {es:"Entrada de primer piso; unidad en el 3er piso (sin vecinos arriba)",en:"First-floor entry; 3rd-floor unit (no upstairs neighbors)"},
+  {es:"Cable, internet y agua incluidos en la renta",en:"Cable, internet and water included in rent"}
+ ]},
+ community:{t_es:"La comunidad 55+",t_en:"The 55+ community",items:[
+  {es:"Piscina comunitaria climatizada (in-ground)",en:"Heated in-ground community pool"},
+  {es:"Canchas de tenis y campo de golf",en:"Tennis courts and golf course"},
+  {es:"Club house: teatro, baile, arte y manualidades, billar",en:"Clubhouse: theater shows, dancing, arts & crafts, billiards"},
+  {es:"Gimnasio / sala de ejercicios y elevador",en:"Exercise room / gym and elevator"},
+  {es:"Comunidad cerrada y amurallada con guardia 24/7",en:"Gated, walled community with 24/7 guard"},
+  {es:"Administración en sitio",en:"On-site management"},
+  {es:"Shuttle de la comunidad a Publix y tiendas",en:"Community shuttle to Publix and shopping"},
+  {es:"2 centros comerciales a menos de 1 milla; minutos de la I-75; ~30 min al aeropuerto",en:"2 malls within a mile; minutes to I-75; ~30 min to the airport"},
+  {es:"Contrato: 1 año con opción de renovación · No se permiten mascotas",en:"Lease: 1 year with renewal option · No pets"},
+  {es:"Estacionamiento: consultar con la agente",en:"Parking: contact the agent"}
+ ]}
+};
+const TOUR=[
+ {t_es:"Entrada",t_en:"Entrance",n_es:"El recibidor, con vista directa al balcón al fondo.",n_en:"The foyer, with a direct view to the balcony at the end.",imgs:[
+  {s:"01_entrance_result.webp",a_es:"Entrada con vista al balcón al fondo",a_en:"Entrance with a view to the balcony"}]},
+ {t_es:"Segundo dormitorio",t_en:"Second bedroom",n_es:"Lo primero al recorrer el pasillo. Piso laminado y vestidor (walk-in) propio.",n_en:"The first room along the hallway. Laminate floor and its own walk-in closet.",imgs:[
+  {s:"03_room02_01_result.webp",a_es:"Segundo dormitorio con vestidor walk-in y ventana",a_en:"Second bedroom with walk-in closet and window"},
+  {s:"04_room02_02_result.webp",a_es:"Segundo dormitorio, otra vista",a_en:"Second bedroom, another view"}]},
+ {t_es:"Lavandería",t_en:"Laundry",n_es:"Lavadora y secadora apiladas, dentro de la unidad.",n_en:"Stacked washer and dryer, inside the unit.",imgs:[
+  {s:"02_wash_machine_result.webp",a_es:"Lavadora y secadora apiladas",a_en:"Stacked washer and dryer"}]},
+ {t_es:"Segundo baño",t_en:"Second bathroom",n_es:"Baño completo con ducha, para visitas y segundo dormitorio.",n_en:"Full bathroom with shower, for guests and the second bedroom.",imgs:[
+  {s:"05_bathroom02_result.webp",a_es:"Segundo baño completo",a_en:"Second full bathroom"}]},
+ {t_es:"Cocina y comedor diario",t_en:"Kitchen & dining nook",n_es:"Cocina tipo galera con espacio de comedor diario y conexión al balcón.",n_en:"Galley kitchen with a daily dining nook, opening toward the balcony.",imgs:[
+  {s:"06_kitchen_diner_result.webp",a_es:"Zona de comedor diario junto a la cocina",a_en:"Daily dining nook next to the kitchen"},
+  {s:"07_kitchen_diner2_result.webp",a_es:"Cocina con refrigerador y cocina eléctrica",a_en:"Kitchen with refrigerator and electric range"},
+  {s:"08_kitchen_diner3_result.webp",a_es:"Cocina tipo galera hacia el balcón",a_en:"Galley kitchen toward the balcony"},
+  {s:"09_living04_kitchen_result.webp",a_es:"Paso de la sala hacia la cocina",a_en:"Passage from the living area to the kitchen"}]},
+ {t_es:"Sala y comedor",t_en:"Living & dining",n_es:"Amplio espacio social con salida al balcón privado.",n_en:"Spacious living space with access to the private balcony.",imgs:[
+  {s:"10_living01ok_result.webp",a_es:"Sala-comedor con salida al balcón",a_en:"Living-dining with balcony access"},
+  {s:"11_living02ok_result.webp",a_es:"Sala-comedor, vista hacia el pasillo y la cocina",a_en:"Living-dining, view toward hallway and kitchen"}]},
+ {t_es:"Balcón privado",t_en:"Private balcony",n_es:"Cerrado (screened), con vista al jardín y la piscina.",n_en:"Screened, overlooking the garden and pool.",imgs:[
+  {s:"18_balcony01_result.webp",a_es:"Balcón cerrado con puerta corrediza",a_en:"Screened balcony with sliding door"},
+  {s:"19_balcony02_result.webp",a_es:"Balcón cerrado, vista lateral",a_en:"Screened balcony, side view"},
+  {s:"20_balcony03_result.webp",a_es:"Vista desde el balcón al jardín y la piscina",a_en:"View from the balcony to garden and pool"}]},
+ {t_es:"Suite principal",t_en:"Primary suite",n_es:"Dormitorio principal con su vestidor (walk-in) y baño propio.",n_en:"Primary bedroom with its walk-in closet and private bathroom.",imgs:[
+  {s:"12_room01_01_result.webp",a_es:"Dormitorio principal",a_en:"Primary bedroom"},
+  {s:"13_room01_02_result.webp",a_es:"Dormitorio principal con su baño al fondo",a_en:"Primary bedroom with its bathroom beyond"},
+  {s:"14_wc_room1_01_result.webp",a_es:"Vestidor walk-in de la suite",a_en:"Walk-in closet of the suite"},
+  {s:"15_wc_room1_03_result.webp",a_es:"Vestidor walk-in, vista al tocador",a_en:"Walk-in closet, view to the vanity"},
+  {s:"16_bathroom01_result.webp",a_es:"Baño de la suite con tina",a_en:"Suite bathroom with tub"},
+  {s:"17_bathroom01a_result.webp",a_es:"Baño de la suite, ducha independiente",a_en:"Suite bathroom, separate shower"}]}
 ];
 
-/* ---------- Render ---------- */
-const state = {}; // id -> { status, note }
-const STATUSES = [
-  {key:"bien", label:"Bien"},
-  {key:"obs",  label:"Observación"},
-  {key:"mal",  label:"Problema"}
-];
-let TOTAL = 0;
-const cont = document.getElementById("sections");
+/* ====== Estado idioma ====== */
+let LANG="es";
+try{ const s=localStorage.getItem("rentLang"); if(s==="es"||s==="en") LANG=s;
+  else if(navigator.language && navigator.language.toLowerCase().startsWith("en")) LANG="en"; }catch(e){
+  if(navigator.language && navigator.language.toLowerCase().startsWith("en")) LANG="en"; }
 
-DATA.forEach((sec, si) => {
-  const sEl = document.createElement("div");
-  sEl.className = "section" + (si === 0 ? " open" : "");
-  let itemsHtml = "";
-  sec.items.forEach((label, ii) => {
-    const id = `s${si}_i${ii}`;
-    TOTAL++;
-    state[id] = { status:null, note:"", label, section:sec.title };
-    const btns = STATUSES.map(s =>
-      `<button class="state-btn ${s.key}" data-id="${id}" data-st="${s.key}">${s.label}</button>`
-    ).join("");
-    itemsHtml += `
-      <div class="item" data-item="${id}">
-        <div class="item-top">
-          <div class="item-label">${label}</div>
-          <div class="states">${btns}</div>
-        </div>
-        <textarea class="note" data-note="${id}" placeholder="Nota / detalle (opcional)" rows="2"></textarea>
-      </div>`;
-  });
-  sEl.innerHTML = `
-    <div class="section-head">
-      <div class="section-icon">${sec.icon}</div>
-      <div class="section-title">${sec.title}</div>
-      <div class="section-count" data-sc="${si}">0/${sec.items.length}</div>
-      <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="section-body">
-      <div class="section-tools"><button class="mini-btn" data-allgood="${si}">✓ Marcar todo "Bien"</button></div>
-      ${itemsHtml}
-    </div>`;
-  cont.appendChild(sEl);
-});
-
-document.getElementById("fb-total").textContent = TOTAL;
-
-/* ---------- Interacciones ---------- */
-cont.addEventListener("click", (e) => {
-  const head = e.target.closest(".section-head");
-  if (head && !e.target.closest(".state-btn")) {
-    head.parentElement.classList.toggle("open");
-  }
-  const stBtn = e.target.closest(".state-btn");
-  if (stBtn) {
-    const id = stBtn.dataset.id, st = stBtn.dataset.st;
-    state[id].status = (state[id].status === st) ? null : st;
-    refreshItem(id);
-    recalc();
-  }
-  const allgood = e.target.closest("[data-allgood]");
-  if (allgood) {
-    const si = allgood.dataset.allgood;
-    Object.keys(state).forEach(id => {
-      if (id.startsWith(`s${si}_`)) { if(!state[id].status) state[id].status = "bien"; refreshItem(id); }
-    });
-    recalc();
-  }
-});
-cont.addEventListener("input", (e) => {
-  const n = e.target.closest("[data-note]");
-  if (n) state[n.dataset.note].note = n.value;
-});
-
-function refreshItem(id){
-  const item = document.querySelector(`[data-item="${id}"]`);
-  item.querySelectorAll(".state-btn").forEach(b=>{
-    b.classList.toggle("on", b.dataset.st === state[id].status);
-  });
-  const note = item.querySelector(`[data-note="${id}"]`);
-  note.classList.toggle("show", state[id].status === "obs" || state[id].status === "mal");
+const FLAT=[];
+function setLang(l){
+  LANG=l;
+  try{ localStorage.setItem("rentLang",l); }catch(e){}
+  document.documentElement.lang=l;
+  document.getElementById("lng-es").classList.toggle("on",l==="es");
+  document.getElementById("lng-en").classList.toggle("on",l==="en");
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ const k=el.getAttribute("data-i18n"); if(I18N[l][k]!=null) el.textContent=I18N[l][k]; });
+  renderFacts(); renderAerials(); renderChips(); renderDetails(); renderTour();
+}
+function renderFacts(){
+  document.getElementById("facts").innerHTML=FACTS.map(f=>
+    `<div class="fact"><b>${f["b_"+LANG]}</b><small>${f["s_"+LANG]}</small></div>`).join("");
+}
+function renderAerials(){
+  document.getElementById("aerials").innerHTML=AERIALS.map(a=>
+    `<div class="${a.cls}" data-full="${a.full}" data-cap="${a["cap_"+LANG]}">
+       <img src="${a.full}" alt="${a.a}" /><span class="tag">${a["cap_"+LANG]}</span></div>`).join("");
+}
+function renderChips(){
+  document.getElementById("chips").innerHTML=CHIPS.map(c=>`<span class="chip"><i>◆</i> ${c[LANG]}</span>`).join("");
+}
+function renderDetails(){
+  const home='<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>';
+  const ppl='<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>';
+  const col=(d,icon)=>`<div class="det-col"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${icon}</svg> ${d["t_"+LANG]}</h3>
+    <ul class="det-list">${d.items.map(i=>`<li>${i[LANG]}</li>`).join("")}</ul></div>`;
+  document.getElementById("details").innerHTML=col(DETAILS.interior,home)+col(DETAILS.community,ppl);
+}
+function renderTour(){
+  FLAT.length=0;
+  const stopsEl=document.getElementById("stops");
+  stopsEl.innerHTML=TOUR.map((stop,i)=>{
+    const start=FLAT.length; stop.imgs.forEach(im=>FLAT.push(im));
+    const n=stop.imgs.length, g=n===1?"g1":n===2?"g2":n===3?"g3":"g4";
+    const shots=stop.imgs.map((im,k)=>`<figure class="shot"><img src="${im.s}" alt="${im["a_"+LANG]}" loading="lazy" data-idx="${start+k}" /></figure>`).join("");
+    return `<div class="stop reveal in"><div class="num">${i+1}</div><h3>${stop["t_"+LANG]}</h3>
+      <div class="room-note">${stop["n_"+LANG]}</div><div class="shots ${g}">${shots}</div></div>`;
+  }).join("");
 }
 
-function recalc(){
-  let rev=0, ok=0, obs=0, bad=0;
-  const perSec = {};
-  Object.keys(state).forEach(id=>{
-    const s = state[id].status;
-    const si = id.split("_")[0].slice(1);
-    perSec[si] = perSec[si] || {done:0,total:0};
-    perSec[si].total++;
-    if(s){ rev++; perSec[si].done++; if(s==="bien")ok++; else if(s==="obs")obs++; else bad++; }
-  });
-  document.getElementById("st-rev").textContent = rev;
-  document.getElementById("st-ok").textContent  = ok;
-  document.getElementById("st-obs").textContent = obs;
-  document.getElementById("st-bad").textContent = bad;
-  document.getElementById("fb-rev").textContent = rev;
-  document.getElementById("fb-bad").textContent = bad;
-  document.getElementById("fill").style.width = (rev/TOTAL*100).toFixed(1)+"%";
-  Object.keys(perSec).forEach(si=>{
-    const el = document.querySelector(`[data-sc="${si}"]`);
-    el.textContent = `${perSec[si].done}/${perSec[si].total}`;
-    el.classList.toggle("done", perSec[si].done === perSec[si].total);
-  });
-}
-
-/* ---------- Fecha por defecto ---------- */
+/* ====== Agente ====== */
 (function(){
-  const d = new Date();
-  document.getElementById("fecha").value = d.toISOString().slice(0,10);
+  const a=CONFIG.agente;
+  document.getElementById("ag-name").textContent=a.nombre;
+  document.getElementById("ag-firm").textContent=a.firma;
+  document.getElementById("ag-phone-txt").textContent=a.telefonoTexto;
+  document.getElementById("ag-phone").href=a.telefono?"tel:"+a.telefono:"#";
+  document.getElementById("ag-email-txt").textContent=a.correo||"correo@ejemplo.com";
+  document.getElementById("ag-email").href=a.correo?"mailto:"+a.correo:"#";
 })();
 
-/* ---------- Construcción del reporte ---------- */
-function buildReport(){
-  const insp = document.getElementById("inspector").value.trim() || "(sin nombre)";
-  const fecha = document.getElementById("fecha").value || "(sin fecha)";
-  const uni = document.getElementById("unidad").value.trim() || "APT 315R";
-  let rev=0, ok=0, obs=0, bad=0;
-  Object.values(state).forEach(s=>{ if(s.status){rev++; if(s.status==="bien")ok++; else if(s.status==="obs")obs++; else bad++;}});
-
-  const lines = [];
-  lines.push("INSPECCIÓN DE UNIDAD — REPORTE");
-  lines.push("======================================");
-  lines.push(`Dirección: 12501 SW 14th St, ${uni}, Hollywood, FL 33027`);
-  lines.push(`Inspector(es): ${insp}`);
-  lines.push(`Fecha: ${fecha}`);
-  lines.push("");
-  lines.push(`Resumen: ${rev}/${TOTAL} revisados  |  Bien: ${ok}  |  Observaciones: ${obs}  |  Problemas: ${bad}`);
-  lines.push("======================================");
-  lines.push("");
-
-  const map = {bien:"✅ BIEN", obs:"⚠️ OBSERVACIÓN", mal:"❌ PROBLEMA", null:"⬜ sin revisar"};
-  DATA.forEach((sec, si)=>{
-    lines.push(`■ ${sec.title.toUpperCase()}`);
-    sec.items.forEach((label, ii)=>{
-      const id = `s${si}_i${ii}`;
-      const s = state[id];
-      let row = `   ${map[s.status] || map.null}  ${label}`;
-      if(s.note && s.note.trim()) row += `\n        ↳ Nota: ${s.note.trim()}`;
-      lines.push(row);
-    });
-    lines.push("");
-  });
-
-  // lista destacada de problemas/observaciones
-  const flagged = [];
-  Object.values(state).forEach(s=>{
-    if(s.status==="mal"||s.status==="obs"){
-      flagged.push(`${s.status==="mal"?"❌":"⚠️"} [${s.section}] ${s.label}${s.note?` — ${s.note.trim()}`:""}`);
-    }
-  });
-  if(flagged.length){
-    lines.push("--------------------------------------");
-    lines.push("PUNTOS QUE REQUIEREN ATENCIÓN:");
-    flagged.forEach(f=>lines.push("  • "+f));
-    lines.push("");
-  }
-  lines.push("Reporte generado desde la app de inspección.");
-
-  return {
-    subject:`Inspección ${uni} — ${fecha} (${bad} problemas, ${obs} obs.)`,
-    body:lines.join("\n"),
-    rev
-  };
-}
-
-/* ---------- Toast ---------- */
-function toast(msg){
-  const t = document.getElementById("toast");
-  t.textContent = msg; t.classList.add("show");
-  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove("show"), 4200);
-}
-
-/* ---------- Envío ---------- */
-async function sendReport(){
-  const r = buildReport();
-  if(r.rev === 0){ toast("Marca al menos un ítem antes de enviar."); return; }
-
-  if(WEB3FORMS_ACCESS_KEY){
-    try{
-      toast("Enviando…");
-      const res = await fetch("https://api.web3forms.com/submit",{
-        method:"POST",
-        headers:{"Content-Type":"application/json", Accept:"application/json"},
-        body:JSON.stringify({
-          access_key:WEB3FORMS_ACCESS_KEY,
-          subject:r.subject,
-          from_name:"Inspección de Unidad",
-          email:TO_EMAIL,
-          cc:CC_EMAIL,
-          message:r.body
-        })
-      });
-      const out = await res.json();
-      if(out.success){ toast("✅ Reporte enviado por email."); }
-      else { toast("No se pudo enviar automáticamente. Abriendo tu correo…"); mailtoFallback(r); }
-    }catch(err){ toast("Error de red. Abriendo tu correo…"); mailtoFallback(r); }
-  } else {
-    mailtoFallback(r);
-  }
-}
-function mailtoFallback(r){
-  const url = `mailto:${TO_EMAIL}?cc=${CC_EMAIL}`+
-              `&subject=${encodeURIComponent(r.subject)}`+
-              `&body=${encodeURIComponent(r.body)}`;
-  window.location.href = url;
-}
-
-document.getElementById("send-main").addEventListener("click", sendReport);
-document.getElementById("send-foot").addEventListener("click", ()=>{
-  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
-  sendReport();
+/* ====== Lightbox ====== */
+const lb=document.getElementById("lb"),lbImg=document.getElementById("lb-img"),lbCap=document.getElementById("lb-cap");
+let cur=0;
+function openLB(i){cur=i;render();lb.classList.add("open");document.body.style.overflow="hidden";}
+function closeLB(){lb.classList.remove("open");document.body.style.overflow="";}
+function render(){const it=FLAT[cur];lbImg.src=it.s;lbImg.alt=it["a_"+LANG];lbCap.textContent=it["a_"+LANG];}
+function step(d){cur=(cur+d+FLAT.length)%FLAT.length;render();}
+document.addEventListener("click",e=>{
+  const shot=e.target.closest(".shot img[data-idx]");
+  if(shot){openLB(+shot.dataset.idx);return;}
+  const aer=e.target.closest(".aerial[data-full]");
+  if(aer){lbImg.src=aer.dataset.full;lbImg.alt=aer.dataset.cap||"";lbCap.textContent=aer.dataset.cap||"";cur=-1;lb.classList.add("open");document.body.style.overflow="hidden";}
+});
+document.getElementById("lb-close").onclick=closeLB;
+document.getElementById("lb-prev").onclick=()=>{if(cur>=0)step(-1);};
+document.getElementById("lb-next").onclick=()=>{if(cur>=0)step(1);};
+lb.addEventListener("click",e=>{if(e.target===lb)closeLB();});
+document.addEventListener("keydown",e=>{
+  if(!lb.classList.contains("open"))return;
+  if(e.key==="Escape")closeLB();
+  else if(cur>=0&&e.key==="ArrowLeft")step(-1);
+  else if(cur>=0&&e.key==="ArrowRight")step(1);
 });
 
-recalc();
+/* ====== Reveal ====== */
+const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* ====== Video reduced-motion ====== */
+const v=document.getElementById("locvideo");
+if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){v.removeAttribute("autoplay");v.pause();}
+else{v.addEventListener("canplay",()=>v.play().catch(()=>{}),{once:true});}
+
+/* ====== Init ====== */
+setLang(LANG);
 </script>
 </body>
 </html>
