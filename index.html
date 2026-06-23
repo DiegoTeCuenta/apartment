@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>En renta · 12501 SW 14th St, Apt 315R · Pembroke Pines FL</title>
+<title>En renta · 12501 SW 14th St, Apt 315R · Hollywood, FL</title>
 <meta name="description" content="Condo de 2 dormitorios y 2 baños en renta — Century Village 55+, Hollywood, FL. Cable, internet y agua incluidos. Balcón privado, piscina, tenis y golf." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -241,13 +241,9 @@
       <div class="role" data-i18n="agent_role">Agente inmobiliaria</div>
       <div class="name" id="ag-name">Mariem Garcia</div>
       <div class="firm" id="ag-firm">Galleria International at Compass</div>
-      <a class="line phone" id="ag-phone" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span id="ag-phone-txt">(000) 000-0000</span>
-      </a>
-      <a class="line" id="ag-email" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-        <span id="ag-email-txt">correo@ejemplo.com</span>
+      <a class="line phone" id="ag-zillow" href="https://www.zillow.com/homedetails/12501-SW-14th-St-APT-315R-Hollywood-FL-33027/43248227_zpid/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+        <span data-i18n="ag_cta">Ver anuncio y contactar en Zillow</span>
       </a>
     </div>
   </div>
@@ -271,10 +267,7 @@
 const CONFIG = {
   agente: {
     nombre:"Mariem Garcia",
-    firma:"Galleria International at Compass",
-    telefono:"",                 // ej. "+19545551234"
-    telefonoTexto:"(000) 000-0000",
-    correo:""                    // ej. "agente@correo.com"
+    firma:"Galleria International at Compass"
   }
 };
 
@@ -297,6 +290,7 @@ const I18N = {
   contact_eyebrow:"Agenda tu visita", contact_h2:"¿Te gustaría conocerlo?",
   contact_lead:"Comunícate con la agente para coordinar una visita o resolver cualquier consulta sobre la renta.",
   agent_role:"Agente inmobiliaria",
+  ag_cta:"Ver anuncio y contactar en Zillow",
   footer_main:"Condo en renta en comunidad de adultos 55+. Al menos un inquilino debe tener 55 años o más.",
   footer_legal:"Las fotografías corresponden a la unidad disponible. Información ofrecida de buena fe (fuente: MLS / Zillow), puede estar sujeta a cambios; verifique los detalles con la agente. Comunidad con restricción de edad (55+). Igualdad de oportunidades de vivienda / Equal Housing Opportunity."
  },
@@ -317,6 +311,7 @@ const I18N = {
   contact_eyebrow:"Schedule a visit", contact_h2:"Would you like to see it?",
   contact_lead:"Reach out to the agent to schedule a showing or ask any questions about the rental.",
   agent_role:"Listing agent",
+  ag_cta:"View listing & contact on Zillow",
   footer_main:"Condo for rent in a 55+ adult community. At least one renter must be 55 or older.",
   footer_legal:"Photos are of the available unit. Information provided in good faith (source: MLS / Zillow) and subject to change; verify details with the agent. Age-restricted community (55+). Equal Housing Opportunity."
  }
@@ -456,10 +451,6 @@ function renderTour(){
   const a=CONFIG.agente;
   document.getElementById("ag-name").textContent=a.nombre;
   document.getElementById("ag-firm").textContent=a.firma;
-  document.getElementById("ag-phone-txt").textContent=a.telefonoTexto;
-  document.getElementById("ag-phone").href=a.telefono?"tel:"+a.telefono:"#";
-  document.getElementById("ag-email-txt").textContent=a.correo||"correo@ejemplo.com";
-  document.getElementById("ag-email").href=a.correo?"mailto:"+a.correo:"#";
 })();
 
 /* ====== Lightbox ====== */
